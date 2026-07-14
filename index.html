@@ -18,9 +18,6 @@
             --bg-card: #ffffff; 
             --border-color: #cbd5e1; 
             
-            /* ألوان صناديق يلو الإرشادية والتطبيقية */
-            --example-bg: #eff6ff; --example-border: #2563eb; --example-text: #1e3a8a;
-            
             /* ألوان الموثوقية العالية (درجات الأخضر) */
             --high-trust-bg: #f0fdf4;
             --high-trust-border: #86efac;
@@ -94,7 +91,7 @@
             gap: 18px;
         }
 
-        /* ميزة التحديد (الهايلايت) الأصلية من يلو */
+        /* ميزة التحديد (الهايلايت) */
         .highlight {
             background-color: #fef08a;
             padding: 1px 4px;
@@ -139,17 +136,10 @@
             display: inline-block;
         }
 
-        .high-trust-title {
-            background-color: #dcfce7;
-            color: #14532d;
-        }
+        .high-trust-title { background-color: #dcfce7; color: #14532d; }
+        .low-trust-title { background-color: #fee2e2; color: #7f1d1d; }
 
-        .low-trust-title {
-            background-color: #fee2e2;
-            color: #7f1d1d;
-        }
-
-        /* بطاقات مصادر يلو */
+        /* بطاقات المصادر */
         .source-card {
             border: 1px solid;
             border-radius: 8px;
@@ -157,29 +147,13 @@
             margin-bottom: 12px;
         }
 
-        /* تنسيق بطاقات الموثوقية العالية */
-        .source-card.good-source {
-            background-color: var(--high-trust-bg);
-            border-color: var(--high-trust-border);
-        }
-        .source-card.good-source .rank-badge {
-            background-color: var(--high-trust-badge);
-        }
+        .source-card.good-source { background-color: var(--high-trust-bg); border-color: var(--high-trust-border); }
+        .source-card.good-source .rank-badge { background-color: var(--high-trust-badge); }
 
-        /* تنسيق بطاقات الموثوقية الضعيفة */
-        .source-card.bad-source {
-            background-color: var(--low-trust-bg);
-            border-color: var(--low-trust-border);
-        }
-        .source-card.bad-source .rank-badge {
-            background-color: var(--low-trust-badge);
-        }
+        .source-card.bad-source { background-color: var(--low-trust-bg); border-color: var(--low-trust-border); }
+        .source-card.bad-source .rank-badge { background-color: var(--low-trust-badge); }
 
-        .source-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
+        .source-header { display: flex; align-items: center; margin-bottom: 8px; }
 
         .rank-badge {
             color: white;
@@ -194,31 +168,8 @@
             font-size: 0.95rem;
         }
 
-        .source-name {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text-dark);
-        }
-
-        .source-desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            padding-right: 40px;
-        }
-
-        /* تصميم صناديق يلو الإرشادية الجانبية */
-        .yello-box {
-            padding: 15px;
-            border-radius: 6px;
-            border-right: 4px solid;
-            font-size: 0.95rem;
-        }
-        .yello-box .box-title {
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        
-        .box-example { background: var(--example-bg); border-color: var(--example-border); color: var(--example-text); }
+        .source-name { font-weight: 700; font-size: 1rem; color: var(--text-dark); }
+        .source-desc { color: var(--text-muted); font-size: 0.9rem; padding-right: 40px; }
 
         .domain-badge {
             display: inline-block;
@@ -231,10 +182,7 @@
             margin-top: 4px;
         }
 
-        .step-list {
-            list-style: none;
-            padding-right: 5px;
-        }
+        .step-list { list-style: none; padding-right: 5px; }
         .step-list li {
             position: relative;
             padding-right: 18px;
@@ -249,19 +197,72 @@
             font-weight: bold;
         }
 
-        /* تنسيق تفصيل خيارات السؤال */
-        .analysis-section {
-            margin-top: 12px;
-            border-top: 1px dashed var(--border-color);
-            padding-top: 12px;
+        /* تصميم جدول الأسئلة على أسلوب يلو المعتمد */
+        .question-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .question-header-row {
+            background-color: #f1f5f9;
+            border-bottom: 2px solid #cbd5e1;
+        }
+
+        .question-text {
+            padding: 15px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .question-stars {
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #eab308;
+            text-align: left;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .option-item {
+            padding: 12px 15px;
+            font-size: 0.9rem;
+            border-left: 1px solid #e2e8f0;
+        }
+        .options-grid .option-item:nth-child(2n) {
+            border-left: none;
+        }
+
+        /* قسم تحليل خيارات السؤال */
+        .analysis-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .analysis-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
 
         .option-analysis {
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .option-analysis.wrong {
+            font-size: 0.85rem;
+            margin-bottom: 6px;
             color: #991b1b;
         }
 
@@ -272,7 +273,7 @@
             padding: 6px 10px;
             border-radius: 4px;
             border-right: 3px solid #16a34a;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         /* الشاشات الصغيرة */
@@ -280,6 +281,8 @@
             .curriculum-layout { grid-template-columns: 1fr; gap: 25px; }
             .column-right { border-left: none; padding-left: 0; border-bottom: 2px dashed var(--border-color); padding-bottom: 25px; }
             .column-left { padding-right: 0; }
+            .options-grid { grid-template-columns: 1fr; }
+            .option-item { border-left: none; border-bottom: 1px solid #e2e8f0; }
         }
     </style>
 </head>
@@ -374,36 +377,41 @@
                     <li><strong>الغرض والحيادية:</strong> تحديد هدف الموقع (هل الهدف نشر المعرفة أم تسويق وبيع منتج؟).</li>
                 </ul>
 
-                <div class="yello-box box-example">
-                    <div class="box-title">مثال محلول:</div>
-                    <b>سؤال:</b> باحث يريد الحصول على إحصائية رسمية ودقيقة عن نسب الاستهلاك المحلي للكهرباء، أي المصادر التالية يُعد الأفضل؟
-                    <br><br>
-                    أ) مقال تفصيلي في موقع ويكيبيديا.
-                    <br>
-                    ب) تقرير منشور في مدونة مهتم بالطاقة.
-                    <br>
-                    ج) التقرير السنوي لوزارة الطاقة.
-                    <br>
-                    د) منشور في منصة إكس لشركة تجارية للأجهزة الكهربائية.
+                <h3 class="section-title" style="margin-top: 10px;">تطبيقات وتجميعات يلو</h3>
+
+                <table class="question-table">
+                    <tr class="question-header-row">
+                        <td class="question-text">
+                            باحث يريد الحصول على إحصائية رسمية ودقيقة عن نسب الاستهلاك المحلي للكهرباء، أي المصادر التالية يُعد الأفضل؟
+                        </td>
+                        <td class="question-stars">★★★</td>
+                    </tr>
+                </table>
+                
+                <div class="options-grid">
+                    <div class="option-item">أ) مقال تفصيلي في موقع ويكيبيديا.</div>
+                    <div class="option-item">ب) تقرير منشور في مدونة مهتم بالطاقة.</div>
+                    <div class="option-item">ج) التقرير السنوي لوزارة الطاقة.</div>
+                    <div class="option-item">د) منشور في منصة إكس لشركة تجارية.</div>
+                </div>
+
+                <div class="analysis-box">
+                    <div class="analysis-title">تحليل الخيارات:</div>
                     
-                    <div class="analysis-section">
-                        <div class="box-title">تحليل الخيارات:</div>
-                        
-                        <div class="option-analysis wrong">
-                            <b>• الخيار (أ) خطأ:</b> لأن ويكيبيديا موسوعة حرة مفتوحة لتعديل الجمهور وليست جهة إحصائية رسمية معتمدة علمياً.
-                        </div>
-                        
-                        <div class="option-analysis wrong">
-                            <b>• الخيار (ب) خطأ:</b> لأن المدونات الشخصية تعبر عن آراء وخبرات أفراد غير محكومة بمعايير علمية أو رسمية صارمة.
-                        </div>
-                        
-                        <div class="option-analysis wrong">
-                            <b>• الخيار (د) خطأ:</b> لأن منشورات الشركات التجارية على منصات التواصل الاجتماعي تهدف للتسويق والترويج، وتفتقر غالباً للحيادية الكاملة.
-                        </div>
-                        
-                        <div class="option-analysis correct">
-                            <b>✓ الخيار (ج) هو الصحيح:</b> التقرير السنوي لوزارة الطاقة صادر عن جهة حكومية رسمية معتمدة محلياً، وهو ما يجعله في المرتبة الثانية مباشرة من حيث قوة الموثوقية الرسمية والدقة الإحصائية مقارنة بالخيارات الأخرى.
-                        </div>
+                    <div class="option-analysis">
+                        <b>• الخيار (أ) خطأ:</b> لأن ويكيبيديا موسوعة حرة مفتوحة لتعديل الجمهور وليست جهة إحصائية رسمية.
+                    </div>
+                    
+                    <div class="option-analysis">
+                        <b>• الخيار (ب) خطأ:</b> لأن المدونات الشخصية تعبر عن آراء أفراد ولا تلتزم بمعايير رسمية صارمة.
+                    </div>
+                    
+                    <div class="option-analysis">
+                        <b>• الخيار (د) خطأ:</b> لأن منشورات الشركات التجارية تهدف للتسويق والترويج وتفتقر للحيادية.
+                    </div>
+                    
+                    <div class="option-analysis correct">
+                        ✓ الخيار (ج) هو الصحيح: التقرير السنوي لوزارة الطاقة صادر عن جهة حكومية رسمية معتمدة محلياً.
                     </div>
                 </div>
 
