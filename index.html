@@ -18,11 +18,18 @@
             --bg-card: #ffffff; 
             --border-color: #cbd5e1; 
             
-            /* ألوان صناديق يلو الإرشادية - هادئة وعملية */
-            --alert-bg: #fef2f2; --alert-border: #ef4444; --alert-text: #991b1b;
-            --note-bg: #f0fdf4; --note-border: #16a34a; --note-text: #14532d;
-            --link-bg: #fff7ed; --link-border: #ea580c; --link-text: #7c2d12;
+            /* ألوان صناديق يلو الإرشادية والتطبيقية */
             --example-bg: #eff6ff; --example-border: #2563eb; --example-text: #1e3a8a;
+            
+            /* ألوان الموثوقية العالية (درجات الأخضر) */
+            --high-trust-bg: #f0fdf4;
+            --high-trust-border: #86efac;
+            --high-trust-badge: #16a34a;
+            
+            /* ألوان الموثوقية الضعيفة (درجات الأحمر) */
+            --low-trust-bg: #fef2f2;
+            --low-trust-border: #fca5a5;
+            --low-trust-badge: #dc2626;
         }
 
         * {
@@ -69,7 +76,7 @@
 
         .curriculum-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 35px;
         }
 
@@ -123,13 +130,49 @@
             font-weight: 800;
         }
 
+        .category-group-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin: 15px 0 10px 0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .high-trust-title {
+            background-color: #dcfce7;
+            color: #14532d;
+        }
+
+        .low-trust-title {
+            background-color: #fee2e2;
+            color: #7f1d1d;
+        }
+
         /* بطاقات مصادر يلو */
         .source-card {
-            background: var(--bg-main);
-            border: 1px solid #e2e8f0;
+            border: 1px solid;
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 12px;
+        }
+
+        /* تنسيق بطاقات الموثوقية العالية */
+        .source-card.good-source {
+            background-color: var(--high-trust-bg);
+            border-color: var(--high-trust-border);
+        }
+        .source-card.good-source .rank-badge {
+            background-color: var(--high-trust-badge);
+        }
+
+        /* تنسيق بطاقات الموثوقية الضعيفة */
+        .source-card.bad-source {
+            background-color: var(--low-trust-bg);
+            border-color: var(--low-trust-border);
+        }
+        .source-card.bad-source .rank-badge {
+            background-color: var(--low-trust-badge);
         }
 
         .source-header {
@@ -151,14 +194,6 @@
             font-size: 0.95rem;
         }
 
-        /* تدرج عملي وبسيط للموثوقية */
-        .rank-1 .rank-badge { background-color: #1e3a8a; } 
-        .rank-2 .rank-badge { background-color: #1d4ed8; }
-        .rank-3 .rank-badge { background-color: #2563eb; }
-        .rank-4 .rank-badge { background-color: #4b5563; }
-        .rank-5 .rank-badge { background-color: #9ca3af; }
-        .rank-6 .rank-badge { background-color: #dc2626; }
-
         .source-name {
             font-weight: 700;
             font-size: 1rem;
@@ -176,16 +211,13 @@
             padding: 15px;
             border-radius: 6px;
             border-right: 4px solid;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
         .yello-box .box-title {
             font-weight: 800;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
         
-        .box-alert { background: var(--alert-bg); border-color: var(--alert-border); color: var(--alert-text); }
-        .box-note { background: var(--note-bg); border-color: var(--note-border); color: var(--note-text); }
-        .box-link { background: var(--link-bg); border-color: var(--link-border); color: var(--link-text); }
         .box-example { background: var(--example-bg); border-color: var(--example-border); color: var(--example-text); }
 
         .domain-badge {
@@ -217,6 +249,32 @@
             font-weight: bold;
         }
 
+        /* تنسيق تفصيل خيارات السؤال */
+        .analysis-section {
+            margin-top: 12px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 12px;
+        }
+
+        .option-analysis {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .option-analysis.wrong {
+            color: #991b1b;
+        }
+
+        .option-analysis.correct {
+            color: #14532d;
+            font-weight: 700;
+            background-color: #dcfce7;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border-right: 3px solid #16a34a;
+            margin-top: 10px;
+        }
+
         /* الشاشات الصغيرة */
         @media (max-width: 992px) {
             .curriculum-layout { grid-template-columns: 1fr; gap: 25px; }
@@ -242,9 +300,11 @@
                     <p>هي تحديد مصادر دقيقة للمعلومات والتحقق من صحتها وموثوقيتها.</p>
                 </div>
 
-                <h3 class="section-title">مصادر المعلومات (مرتبة من الأكثر دقة للأضعف)</h3>
+                <h3 class="section-title">مصادر المعلومات وتقييمها</h3>
 
-                <div class="source-card rank-1">
+                <div class="category-group-title high-trust-title">مصادر عالية الموثوقية (معتمدة)</div>
+
+                <div class="source-card good-source">
                     <div class="source-header">
                         <span class="rank-badge">١</span>
                         <span class="source-name">الأوراق العلمية المحكّمة والكتب الأكاديمية</span>
@@ -252,7 +312,7 @@
                     <div class="source-desc">تعد <span class="highlight">الأقوى علمياً</span>؛ بسبب خضوعها لمراجعة وتدقيق صارم من متخصصين قبل النشر.</div>
                 </div>
 
-                <div class="source-card rank-2">
+                <div class="source-card good-source">
                     <div class="source-header">
                         <span class="rank-badge">٢</span>
                         <span class="source-name">التقارير الحكومية الرسمية</span>
@@ -264,7 +324,7 @@
                     </div>
                 </div>
 
-                <div class="source-card rank-3">
+                <div class="source-card good-source">
                     <div class="source-header">
                         <span class="rank-badge">٣</span>
                         <span class="source-name">المنظمات الدولية</span>
@@ -276,7 +336,9 @@
                     </div>
                 </div>
 
-                <div class="source-card rank-4">
+                <div class="category-group-title low-trust-title">مصادر ضعيفة الموثوقية (غير معتمدة علمياً)</div>
+
+                <div class="source-card bad-source">
                     <div class="source-header">
                         <span class="rank-badge">٤</span>
                         <span class="source-name">الموسوعات الحرة</span>
@@ -284,7 +346,7 @@
                     <div class="source-desc">مواقع تقدم معلومات عامة ومفتوحة للتعديل من قِبل الجمهور (مثل: ويكيبيديا). <span class="highlight">لا تعتمد كمرجع بحثي دقيق</span>.</div>
                 </div>
 
-                <div class="source-card rank-5">
+                <div class="source-card bad-source">
                     <div class="source-header">
                         <span class="rank-badge">٥</span>
                         <span class="source-name">تقارير الشركات التجارية</span>
@@ -292,7 +354,7 @@
                     <div class="source-desc">مواقع تهدف للربح والتسويق لمنتجاتها، وقد تفتقر للحياد العلمي وتظهر الانحياز.</div>
                 </div>
 
-                <div class="source-card rank-6">
+                <div class="source-card bad-source">
                     <div class="source-header">
                         <span class="rank-badge">٦</span>
                         <span class="source-name">المدونات وشبكات التواصل الاجتماعي</span>
@@ -312,31 +374,37 @@
                     <li><strong>الغرض والحيادية:</strong> تحديد هدف الموقع (هل الهدف نشر المعرفة أم تسويق وبيع منتج؟).</li>
                 </ul>
 
-                <div class="yello-box box-link">
-                    <div class="box-title">للربط:</div>
-                    لتذكر المصادر الثلاثة الأكثر موثوقية بالترتيب، اجمع حروفها الأولى في كلمة <b>(رَقْـمْ)</b>:
-                    <br>
-                    [<b>ر</b> = رسائل علمية محكمة] ⟵ [<b>ق</b> = قطاع حكومي رسمي] ⟵ [<b>م</b> = منظمات دولية].
-                </div>
-
-                <div class="yello-box box-alert">
-                    <div class="box-title">تنبيه:</div>
-                    احذر من <b>"انحياز التأكيد"</b>؛ وهو ميل الشخص لتصديق المعلومات التي تتوافق مع رأيه وهواه الشخصي وتجاهل الحقائق الأخرى.
-                </div>
-
                 <div class="yello-box box-example">
                     <div class="box-title">مثال محلول:</div>
                     <b>سؤال:</b> باحث يريد الحصول على إحصائية رسمية ودقيقة عن نسب الاستهلاك المحلي للكهرباء، أي المصادر التالية يُعد الأفضل؟
-                    <br>
+                    <br><br>
                     أ) مقال تفصيلي في موقع ويكيبيديا.
                     <br>
                     ب) تقرير منشور في مدونة مهتم بالطاقة.
                     <br>
-                    ج) التقرير السنوي لوزارة الطاقة. <b>(✓ الحل الصحيح)</b>
+                    ج) التقرير السنوي لوزارة الطاقة.
                     <br>
                     د) منشور في منصة إكس لشركة تجارية للأجهزة الكهربائية.
-                    <br>
-                    <p style="margin-top: 6px; font-size: 0.85rem; opacity: 0.9;"><b>الشرح:</b> التقارير الصادرة من الجهات الحكومية الرسمية (وزارة الطاقة) تقع في المرتبة الثانية مباشرة من حيث القوة والموثوقية الرسمية وتتقدم على المدونات والموسوعات والشركات التجارية.</p>
+                    
+                    <div class="analysis-section">
+                        <div class="box-title">تحليل الخيارات:</div>
+                        
+                        <div class="option-analysis wrong">
+                            <b>• الخيار (أ) خطأ:</b> لأن ويكيبيديا موسوعة حرة مفتوحة لتعديل الجمهور وليست جهة إحصائية رسمية معتمدة علمياً.
+                        </div>
+                        
+                        <div class="option-analysis wrong">
+                            <b>• الخيار (ب) خطأ:</b> لأن المدونات الشخصية تعبر عن آراء وخبرات أفراد غير محكومة بمعايير علمية أو رسمية صارمة.
+                        </div>
+                        
+                        <div class="option-analysis wrong">
+                            <b>• الخيار (د) خطأ:</b> لأن منشورات الشركات التجارية على منصات التواصل الاجتماعي تهدف للتسويق والترويج، وتفتقر غالباً للحيادية الكاملة.
+                        </div>
+                        
+                        <div class="option-analysis correct">
+                            <b>✓ الخيار (ج) هو الصحيح:</b> التقرير السنوي لوزارة الطاقة صادر عن جهة حكومية رسمية معتمدة محلياً، وهو ما يجعله في المرتبة الثانية مباشرة من حيث قوة الموثوقية الرسمية والدقة الإحصائية مقارنة بالخيارات الأخرى.
+                        </div>
+                    </div>
                 </div>
 
             </section>
