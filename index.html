@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منهج مهارات البحث والمعلوماتية - يلو</title>
+    <title>مهارات البحث والمعلوماتية - يلو</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #1e3a8a; /* أزرق ملكي أكاديمي */
-            --secondary-color: #0284c7; /* أزرق فاتح للمؤشرات */
-            --text-dark: #1f2937; /* لغة النص الأساسية */
-            --text-muted: #4b5563; /* للنصوص الفرعية */
-            --bg-main: #f8fafc; /* خلفية الصفحة */
-            --bg-card: #ffffff; /* خلفية البطاقات */
-            --border-color: #cbd5e1; /* لون الخط الفاصل */
+            --primary-color: #1e3a8a; /* أزرق يلو الأساسي */
+            --secondary-color: #0284c7; 
+            --text-dark: #1f2937; 
+            --text-muted: #4b5563; 
+            --bg-main: #f8fafc; 
+            --bg-card: #ffffff; 
+            --border-color: #cbd5e1; 
             
-            /* ألوان الصناديق الإرشادية - أسلوب يلو */
+            /* ألوان صناديق يلو الإرشادية - هادئة وعملية */
             --alert-bg: #fef2f2; --alert-border: #ef4444; --alert-text: #991b1b;
             --note-bg: #f0fdf4; --note-border: #16a34a; --note-text: #14532d;
             --link-bg: #fff7ed; --link-border: #ea580c; --link-text: #7c2d12;
@@ -35,67 +35,63 @@
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-main);
             color: var(--text-dark);
-            line-height: 1.7;
-            padding: 40px 20px;
+            line-height: 1.6;
+            padding: 30px 15px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: var(--bg-card);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        /* الهيدر العلوي للمنهج */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 25px;
+            padding-bottom: 15px;
         }
 
         header h1 {
             color: var(--primary-color);
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
         }
         
         header p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-top: 5px;
         }
 
-        /* تقسيم الصفحة إلى عمودين */
         .curriculum-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            position: relative;
+            gap: 35px;
         }
 
-        /* العمود الأيمن (التأسيس النظري الهرمي) */
+        /* العمود الأيمن */
         .column-right {
-            padding-left: 20px;
+            padding-left: 15px;
             border-left: 2px dashed var(--border-color);
         }
 
-        /* العمود الأيسر (أدوات التقييم والتطبيقات) */
+        /* العمود الأيسر */
         .column-left {
-            padding-right: 20px;
+            padding-right: 15px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
 
-        /* ميزة التحديد الذكي (الهايلايت للأفكار المتكررة) */
+        /* ميزة التحديد (الهايلايت) الأصلية من يلو */
         .highlight {
             background-color: #fef08a;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 1px 4px;
+            border-radius: 3px;
             font-weight: 700;
         }
 
@@ -103,103 +99,88 @@
         .skill-section {
             background: #f0fdfa;
             border-right: 5px solid #0d9488;
-            padding: 22px;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            padding: 18px;
+            border-radius: 6px;
+            margin-bottom: 25px;
         }
 
         .skill-section h2 {
             color: #115e59;
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+            font-size: 1.25rem;
+            margin-bottom: 6px;
             font-weight: 800;
         }
 
         .skill-section p {
+            font-size: 1rem;
             color: var(--text-dark);
-            font-size: 1.1rem;
         }
 
-        /* العناوين الجانبية */
         .section-title {
             color: var(--primary-color);
-            font-size: 1.35rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
             font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        /* بطاقات المحتوى المطور */
+        /* بطاقات مصادر يلو */
         .source-card {
             background: var(--bg-main);
             border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .source-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.04);
-            border-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
         }
 
         .source-header {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .rank-badge {
             color: white;
             font-weight: 800;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: 14px;
-            font-size: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-left: 12px;
+            font-size: 0.95rem;
         }
 
-        /* تدرج الألوان الذكي للموثوقية */
+        /* تدرج عملي وبسيط للموثوقية */
         .rank-1 .rank-badge { background-color: #1e3a8a; } 
         .rank-2 .rank-badge { background-color: #1d4ed8; }
         .rank-3 .rank-badge { background-color: #2563eb; }
         .rank-4 .rank-badge { background-color: #4b5563; }
-        .rank-5 .rank-badge { background-color: #b91c1c; }
-        .rank-6 .rank-badge { background-color: #7f1d1d; }
+        .rank-5 .rank-badge { background-color: #9ca3af; }
+        .rank-6 .rank-badge { background-color: #dc2626; }
 
         .source-name {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-dark);
         }
 
         .source-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            padding-right: 46px;
+            font-size: 0.9rem;
+            padding-right: 40px;
         }
 
-        /* تصميم الصناديق الإرشادية الخاصة بـ يلو */
+        /* تصميم صناديق يلو الإرشادية الجانبية */
         .yello-box {
-            padding: 18px;
-            border-radius: 8px;
-            border-right: 5px solid;
-            font-size: 0.95rem;
+            padding: 15px;
+            border-radius: 6px;
+            border-right: 4px solid;
+            font-size: 0.9rem;
         }
         .yello-box .box-title {
             font-weight: 800;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            margin-bottom: 4px;
         }
         
         .box-alert { background: var(--alert-bg); border-color: var(--alert-border); color: var(--alert-text); }
@@ -211,49 +192,35 @@
             display: inline-block;
             background: #e0f2fe;
             color: #0369a1;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
-        /* تصميم القوائم الإجرائية الرصاصية */
         .step-list {
             list-style: none;
-            padding-right: 10px;
+            padding-right: 5px;
         }
         .step-list li {
             position: relative;
-            padding-right: 25px;
-            margin-bottom: 12px;
-            font-size: 1rem;
+            padding-right: 18px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
         }
         .step-list li::before {
-            content: "✦";
+            content: "•";
             position: absolute;
             right: 0;
             color: var(--secondary-color);
             font-weight: bold;
         }
 
-        /* محطة العبور / التحفيز */
-        .milestone-banner {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
-        }
-        .milestone-banner h4 { font-size: 1.3rem; font-weight: 800; margin-bottom: 5px; }
-        .milestone-banner p { font-size: 0.95rem; opacity: 0.9; }
-
         /* الشاشات الصغيرة */
         @media (max-width: 992px) {
-            .curriculum-layout { grid-template-columns: 1fr; gap: 30px; }
-            .column-right { border-left: none; padding-left: 0; border-bottom: 2px dashed var(--border-color); padding-bottom: 30px; }
+            .curriculum-layout { grid-template-columns: 1fr; gap: 25px; }
+            .column-right { border-left: none; padding-left: 0; border-bottom: 2px dashed var(--border-color); padding-bottom: 25px; }
             .column-left { padding-right: 0; }
         }
     </style>
@@ -262,8 +229,8 @@
 
     <div class="container">
         <header>
-            <h1>✦ كبسولة مهارات البحث العلمي والتحليل ✦</h1>
-            <p>طريقك المختصر للمئوية والتميز المعرفي</p>
+            <h1>الدرس الأول: الحصول على المعلومات وتقييمها</h1>
+            <p>تأسيس شامل ومباشر للمهارات البحثية</p>
         </header>
 
         <main class="curriculum-layout">
@@ -271,110 +238,105 @@
             <section class="column-right">
                 
                 <div class="skill-section">
-                    <h2>🧠 المهارة الأولى: الحصول على المعلومات وتقييمها</h2>
-                    <p>هي مهارة <span class="highlight">قنص المعلومة الدقيقة</span> من وسط ركام الإنترنت، وفلترتها بذكاء لمعرفة الغث من السمين، بدلاً من الاستهلاك الأعمى للمحتوى.</p>
+                    <h2>تعريف المهارة</h2>
+                    <p>هي تحديد مصادر دقيقة للمعلومات والتحقق من صحتها وموثوقيتها.</p>
                 </div>
 
-                <h3 class="section-title">📊 الهرم المعياري لموثوقية المصادر (من الأقوى للأضعف)</h3>
+                <h3 class="section-title">مصادر المعلومات (مرتبة من الأكثر دقة للأضعف)</h3>
 
                 <div class="source-card rank-1">
                     <div class="source-header">
                         <span class="rank-badge">١</span>
                         <span class="source-name">الأوراق العلمية المحكّمة والكتب الأكاديمية</span>
                     </div>
-                    <div class="source-desc">تعد <span class="highlight">الأقوى على الإطلاق</span>؛ لأنها لا تُنشر إلا بعد مراجعة صارمة وتدقيق من علماء متخصصين في نفس المجال.</div>
+                    <div class="source-desc">تعد <span class="highlight">الأقوى علمياً</span>؛ بسبب خضوعها لمراجعة وتدقيق صارم من متخصصين قبل النشر.</div>
                 </div>
 
                 <div class="source-card rank-2">
                     <div class="source-header">
                         <span class="rank-badge">٢</span>
-                        <span class="source-name">التقارير والإحصاءات الحكومية الرسمية</span>
+                        <span class="source-name">التقارير الحكومية الرسمية</span>
                     </div>
                     <div class="source-desc">
-                        المرجع الأول قانونياً ورسمياً داخل الدول (مثل: بيانات وزارة الصحة أو وزارة التجارة).
+                        تصدر من جهات رسمية معتمدة داخل الدولة (مثل: وزارة الصحة).
                         <br>
-                        <span class="domain-badge">نطاق موقعها الإلكتروني ينتهي بـ gov.</span>
+                        <span class="domain-badge">ملاحظة: ينتهي نطاق موقعها بـ gov.</span>
                     </div>
                 </div>
 
                 <div class="source-card rank-3">
                     <div class="source-header">
                         <span class="rank-badge">٣</span>
-                        <span class="source-name">المنظمات الدولية المتخصصة</span>
+                        <span class="source-name">المنظمات الدولية</span>
                     </div>
                     <div class="source-desc">
-                        مصادر مرجعية عالمية كبرى تعتمد عليها الدول، مثل منظمة الصحة العالمية (WHO).
+                        منظمات عالمية متخصصة وموثوقة (مثل: منظمة الصحة العالمية).
                         <br>
-                        <span class="domain-badge">نطاق موقعها الإلكتروني ينتهي بـ org.</span>
+                        <span class="domain-badge">ملاحظة: ينتهي نطاق موقعها بـ org.</span>
                     </div>
                 </div>
 
                 <div class="source-card rank-4">
                     <div class="source-header">
                         <span class="rank-badge">٤</span>
-                        <span class="source-name">الموسوعات الحرة المفتوحة</span>
+                        <span class="source-name">الموسوعات الحرة</span>
                     </div>
-                    <div class="source-desc">مثل (ويكيبيديا)؛ مفيدة لأخذ فكرة عامة، لكن <span class="highlight">لا تُقبل كمرجع دقيق</span> في الأبحاث لسهولة التعديل عليها من العامة.</div>
+                    <div class="source-desc">مواقع تقدم معلومات عامة ومفتوحة للتعديل من قِبل الجمهور (مثل: ويكيبيديا). <span class="highlight">لا تعتمد كمرجع بحثي دقيق</span>.</div>
                 </div>
 
                 <div class="source-card rank-5">
                     <div class="source-header">
                         <span class="rank-badge">٥</span>
-                        <span class="source-name">تقارير ومواقع الشركات التجارية</span>
+                        <span class="source-name">تقارير الشركات التجارية</span>
                     </div>
-                    <div class="source-desc">تعتبر <span class="highlight">ضعيفة علمياً</span>؛ لأن هدفها الأول ربحي تسويقي، وغالباً ما تنحاز لمنتجاتها الخاصة وتخفي العيوب.</div>
+                    <div class="source-desc">مواقع تهدف للربح والتسويق لمنتجاتها، وقد تفتقر للحياد العلمي وتظهر الانحياز.</div>
                 </div>
 
                 <div class="source-card rank-6">
                     <div class="source-header">
                         <span class="rank-badge">٦</span>
-                        <span class="source-name">المدونات الشخصية وشبكات التواصل</span>
+                        <span class="source-name">المدونات وشبكات التواصل الاجتماعي</span>
                     </div>
-                    <div class="source-desc">الأضعف على الإطلاق؛ مجرد انطباعات وآراء شخصية تفتقر للرقابة العلمية وتنتشر فيها الشائعات.</div>
+                    <div class="source-desc">حسابات وصفحات شخصية تنشر الآراء الفردية، وتعتبر الأضعف موثوقية.</div>
                 </div>
 
             </section>
 
             <section class="column-left">
                 
-                <h3 class="section-title">🧭 بوصلة التقييم السريع (كيف تفحص أي مصدر؟)</h3>
-                <p style="color: var(--text-muted); margin-top: -10px;">لا تثق بالمعلومة مباشرة، مررها فوراً على الفلاتر الثلاثة التالية:</p>
+                <h3 class="section-title">معايير تقييم مصادر المعلومات</h3>
                 
                 <ul class="step-list">
-                    <li><strong>فلتر السلطة والمصدر (Who):</strong> من هو الكاتب؟ هل لديه شهادة أو خبرة حقيقية في هذا التخصص أم مجرد هاوٍ؟</li>
-                    <li><strong>فلتر الحداثة والتوقيت (When):</strong> متى نُشرت المعلومة؟ المعلومات الطبية والتقنية القديمة قد تصبح خاطئة اليوم!</li>
-                    <li><strong>فلتر الغرض والحيادية (Why):</strong> ما الهدف من النشر؟ هل يهدف لنشر العلم، أم لبيع منتج، أم لإثارة الرأي العام؟</li>
+                    <li><strong>المؤلف (السلطة):</strong> التحقق من تخصص وخبرة كاتب المعلومة.</li>
+                    <li><strong>الحداثة والتوقيت:</strong> تاريخ النشر والتحديث (خاصة في المجالات الطبية والتقنية).</li>
+                    <li><strong>الغرض والحيادية:</strong> تحديد هدف الموقع (هل الهدف نشر المعرفة أم تسويق وبيع منتج؟).</li>
                 </ul>
 
                 <div class="yello-box box-link">
-                    <div class="box-title">🔗 للربط السريع ومحاربة النسيان:</div>
-                    تذكر ترتيب المصادر الثلاثة الأقوى دائماً باختصار كلمة <b>(رَقْـمْ)</b>: 
-                    [<b>ر</b> = رسائل وأوراق علمية] ✦ [<b>ق</b> = تقارير حكومية] ✦ [<b>م</b> = منظمات دولية].
+                    <div class="box-title">للربط:</div>
+                    لتذكر المصادر الثلاثة الأكثر موثوقية بالترتيب، اجمع حروفها الأولى في كلمة <b>(رَقْـمْ)</b>:
+                    <br>
+                    [<b>ر</b> = رسائل علمية محكمة] ⟵ [<b>ق</b> = قطاع حكومي رسمي] ⟵ [<b>م</b> = منظمات دولية].
                 </div>
 
                 <div class="yello-box box-alert">
-                    <div class="box-title">⚠️ تنبيه ذكي:</div>
-                    احذر من <b>"انحياز التأكيد"</b>! وهو ميلك النفسي لتصديق أي معلومة توافق هواك ورأيك الشخصي حتى لو كان مصدرها ضعيفاً أو مجهولاً. الباحث الحقيقي يتجرد من عواطفه.
+                    <div class="box-title">تنبيه:</div>
+                    احذر من <b>"انحياز التأكيد"</b>؛ وهو ميل الشخص لتصديق المعلومات التي تتوافق مع رأيه وهواه الشخصي وتجاهل الحقائق الأخرى.
                 </div>
 
                 <div class="yello-box box-example">
-                    <div class="box-title">💡 من تجميعات يلو السابقة:</div>
-                    <b>سؤال:</b> باحث يدرس ظاهرة الاحتباس الحراري، أي المصادر التالية يجب أن يقدمها في قائمة مراجعة بحثه لضمان أعلى دقة؟
+                    <div class="box-title">مثال محلول:</div>
+                    <b>سؤال:</b> باحث يريد الحصول على إحصائية رسمية ودقيقة عن نسب الاستهلاك المحلي للكهرباء، أي المصادر التالية يُعد الأفضل؟
                     <br>
-                    أ) مقال تفصيلي في موقع ويكيبيديا الحرة.
+                    أ) مقال تفصيلي في موقع ويكيبيديا.
                     <br>
-                    ب) تقرير منشور في مدونة خبير بيئي معروف.
+                    ب) تقرير منشور في مدونة مهتم بالطاقة.
                     <br>
-                    ج) ورقة بحثية منشورة في مجلة علمية محكّمة. <b>(✓ الحل الصحيح)</b>
+                    ج) التقرير السنوي لوزارة الطاقة. <b>(✓ الحل الصحيح)</b>
                     <br>
-                    د) منشور توعوي من شركة تجارية لإنتاج الطاقة الشمسية.
+                    د) منشور في منصة إكس لشركة تجارية للأجهزة الكهربائية.
                     <br>
-                    <p style="margin-top: 8px; font-size: 0.9rem; opacity: 0.9;"><b>الشرح الفوري:</b> الأوراق المحكّمة تتربع على رأس هرم الموثوقية وتتقدم على الموسوعات، المدونات، والشركات الربحية.</p>
-                </div>
-
-                <div class="milestone-banner">
-                    <h4>🚀 محطة عبور: لقد أنهيت 25% من الفصل الأول!</h4>
-                    <p>المعلومات النظرية أصبحت في جيبك الآن.. استعد للقسم القادم للانتقال إلى التدريبات العملية المكثفة وتحدي النجوم! 🔥</p>
+                    <p style="margin-top: 6px; font-size: 0.85rem; opacity: 0.9;"><b>الشرح:</b> التقارير الصادرة من الجهات الحكومية الرسمية (وزارة الطاقة) تقع في المرتبة الثانية مباشرة من حيث القوة والموثوقية الرسمية وتتقدم على المدونات والموسوعات والشركات التجارية.</p>
                 </div>
 
             </section>
