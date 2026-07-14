@@ -73,7 +73,7 @@
 
         .curriculum-layout {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr 1fr;
             gap: 35px;
         }
 
@@ -88,7 +88,7 @@
             padding-right: 15px;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 25px;
         }
 
         /* ميزة التحديد (الهايلايت) */
@@ -197,15 +197,18 @@
             font-weight: bold;
         }
 
-        /* تصميم جدول الأسئلة على أسلوب يلو المعتمد */
+        /* تصميم جدول وتجميعات يلو */
+        .question-block {
+            margin-bottom: 20px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         .question-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            background-color: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            overflow: hidden;
         }
 
         .question-header-row {
@@ -218,6 +221,7 @@
             font-size: 0.95rem;
             font-weight: 700;
             text-align: right;
+            color: var(--text-dark);
         }
 
         .question-stars {
@@ -232,32 +236,34 @@
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            border-bottom: 1px solid #e2e8f0;
+            background-color: #ffffff;
         }
 
         .option-item {
             padding: 12px 15px;
             font-size: 0.9rem;
+            border-bottom: 1px solid #e2e8f0;
             border-left: 1px solid #e2e8f0;
         }
         .options-grid .option-item:nth-child(2n) {
             border-left: none;
         }
+        .options-grid .option-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
 
-        /* قسم تحليل خيارات السؤال */
+        /* تحليل وتفكيك الخيارات */
         .analysis-box {
             background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            border-top: 1px solid #cbd5e1;
             padding: 15px;
-            margin-top: 15px;
         }
 
         .analysis-title {
             font-size: 0.9rem;
             font-weight: 800;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .option-analysis {
@@ -282,7 +288,8 @@
             .column-right { border-left: none; padding-left: 0; border-bottom: 2px dashed var(--border-color); padding-bottom: 25px; }
             .column-left { padding-right: 0; }
             .options-grid { grid-template-columns: 1fr; }
-            .option-item { border-left: none; border-bottom: 1px solid #e2e8f0; }
+            .option-item { border-left: none !important; border-bottom: 1px solid #e2e8f0 !important; }
+            .option-item:last-child { border-bottom: none !important; }
         }
     </style>
 </head>
@@ -379,39 +386,55 @@
 
                 <h3 class="section-title" style="margin-top: 10px;">تطبيقات وتجميعات يلو</h3>
 
-                <table class="question-table">
-                    <tr class="question-header-row">
-                        <td class="question-text">
-                            باحث يريد الحصول على إحصائية رسمية ودقيقة عن نسب الاستهلاك المحلي للكهرباء، أي المصادر التالية يُعد الأفضل؟
-                        </td>
-                        <td class="question-stars">★★★</td>
-                    </tr>
-                </table>
-                
-                <div class="options-grid">
-                    <div class="option-item">أ) مقال تفصيلي في موقع ويكيبيديا.</div>
-                    <div class="option-item">ب) تقرير منشور في مدونة مهتم بالطاقة.</div>
-                    <div class="option-item">ج) التقرير السنوي لوزارة الطاقة.</div>
-                    <div class="option-item">د) منشور في منصة إكس لشركة تجارية.</div>
+                <div class="question-block">
+                    <table class="question-table">
+                        <tr class="question-header-row">
+                            <td class="question-text">
+                                أي من المصادر التالية يمثل قمة هرم الموثوقية والدقة العلمية في تقييم المعلومات؟
+                            </td>
+                            <td class="question-stars">★★★</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="options-grid">
+                        <div class="option-item">أ) التقارير السنوية للشركات التجارية.</div>
+                        <div class="option-item">ب) الأوراق العلمية والبحوث المحكّمة.</div>
+                        <div class="option-item">ج) المقالات المنشورة في الموسوعات الحرة.</div>
+                        <div class="option-item">د) التدوينات الشخصية لخبراء الصناعة.</div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <div class="option-analysis correct">
+                            ✓ الخيار (ب) هو الصحيح: الأوراق العلمية والبحوث المحكّمة تخضع لتدقيق علمي صارم ومراجعة من متخصصين قبل النشر.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="analysis-box">
-                    <div class="analysis-title">تحليل الخيارات:</div>
+                <div class="question-block">
+                    <table class="question-table">
+                        <tr class="question-header-row">
+                            <td class="question-text">
+                                باحث يريد الحصول على إحصائية رسمية ودقيقة عن نسب الاستهلاك المحلي للكهرباء، أي المصادر التالية يُعد الأفضل؟
+                            </td>
+                            <td class="question-stars">★★★</td>
+                        </tr>
+                    </table>
                     
-                    <div class="option-analysis">
-                        <b>• الخيار (أ) خطأ:</b> لأن ويكيبيديا موسوعة حرة مفتوحة لتعديل الجمهور وليست جهة إحصائية رسمية.
+                    <div class="options-grid">
+                        <div class="option-item">أ) مقال تفصيلي في موقع ويكيبيديا.</div>
+                        <div class="option-item">ب) تقرير منشور في مدونة مهتم بالطاقة.</div>
+                        <div class="option-item">ج) التقرير السنوي لوزارة الطاقة.</div>
+                        <div class="option-item">د) تقرير صادر من وزارة المالية.</div>
                     </div>
-                    
-                    <div class="option-analysis">
-                        <b>• الخيار (ب) خطأ:</b> لأن المدونات الشخصية تعبر عن آراء أفراد ولا تلتزم بمعايير رسمية صارمة.
-                    </div>
-                    
-                    <div class="option-analysis">
-                        <b>• الخيار (د) خطأ:</b> لأن منشورات الشركات التجارية تهدف للتسويق والترويج وتفتقر للحيادية.
-                    </div>
-                    
-                    <div class="option-analysis correct">
-                        ✓ الخيار (ج) هو الصحيح: التقرير السنوي لوزارة الطاقة صادر عن جهة حكومية رسمية معتمدة محلياً.
+
+                    <div class="analysis-box">
+                        <div class="analysis-title">تحليل الخيارات:</div>
+                        <div class="option-analysis"><b>• الخيار (أ) خطأ:</b> لأن ويكيبيديا موسوعة حرة مفتوحة لتعديل الجمهور وليست جهة إحصائية رسمية.</div>
+                        <div class="option-analysis"><b>• الخيار (ب) خطأ:</b> لأن المدونات الشخصية تعبر عن آراء أفراد ولا تلتزم بمعايير رسمية صارمة.</div>
+                        <div class="option-analysis"><b>• الخيار (د) خطأ:</b> لأن وزارة المالية ليس لها علاقة بموضوع الاستهلاك المحلي للكهرباء.</div>
+                        <div class="option-analysis correct">
+                            ✓ الخيار (ج) هو الصحيح: التقرير السنوي لوزارة الطاقة صادر عن جهة حكومية رسمية معتمدة محلياً.
+                        </div>
                     </div>
                 </div>
 
