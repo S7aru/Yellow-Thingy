@@ -1,1 +1,296 @@
-https://s7aru.github.io/Yellow-Thingy/
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منهج مهارات البحث والمعلوماتية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* أزرق ملكي أكاديمي */
+            --secondary-color: #0284c7; /* أزرق فاتح للمؤشرات */
+            --text-dark: #1f2937; /* لغة النص الأساسية */
+            --text-muted: #4b5563; /* للنصوص الفرعية */
+            --bg-main: #f8fafc; /* خلفية الصفحة */
+            --bg-card: #ffffff; /* خلفية البطاقات */
+            --border-color: #cbd5e1; /* لون الخط الفاصل */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* الهيدر العلوي للمنهج */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        /* تقسيم الصفحة إلى عمودين */
+        .curriculum-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* العمود الأيمن (بداية المنهج) */
+        .column-right {
+            padding-left: 20px;
+            /* إنشاء الخط العمودي الفاصل على يسار العمود الأيمن */
+            border-left: 2px dashed var(--border-color);
+        }
+
+        /* العمود الأيسر (مستقبل المنهج) */
+        .column-left {
+            padding-right: 20px;
+        }
+
+        /* قسم المهارة والتعريف */
+        .skill-section {
+            background: #f0fdf4; /* خلفية خضراء خفيفة للتعريف */
+            border-right: 4px solid #16a34a;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .skill-section h2 {
+            color: #15803d;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .skill-section p {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        /* قسم المصادر */
+        .sources-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* تصميم بطاقات المصادر الهرمية */
+        .source-card {
+            background: var(--bg-main);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .source-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .source-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* أوسمة الترتيب بقوة المصدر */
+        .rank-badge {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
+            font-size: 0.9rem;
+        }
+
+        /* تدرج ألوان الأوسمة حسب القوة */
+        .rank-1 .rank-badge { background-color: #1e3a8a; } /* الأقوى */
+        .rank-2 .rank-badge { background-color: #1d4ed8; }
+        .rank-3 .rank-badge { background-color: #2563eb; }
+        .rank-4 .rank-badge { background-color: #4b5563; }
+        .rank-5 .rank-badge { background-color: #9ca3af; }
+        .rank-6 .rank-badge { background-color: #dc2626; } /* الأضعف */
+
+        .source-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .source-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-right: 40px;
+        }
+
+        .domain-note {
+            display: inline-block;
+            margin-top: 6px;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* مكان محجوز للقسم القادم (العمود الأيسر) */
+        .placeholder-text {
+            border: 2px dashed #e2e8f0;
+            padding: 40px;
+            text-align: center;
+            color: #9ca3af;
+            border-radius: 8px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+        }
+
+        /* دعم الشاشات الصغيرة (Responsive) */
+        @media (max-width: 768px) {
+            .curriculum-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .column-right {
+                border-left: none;
+                padding-left: 0;
+                border-bottom: 2px dashed var(--border-color);
+                padding-bottom: 30px;
+            }
+            .column-left {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>حقيبة مهارات البحث العلمي والتحليل</h1>
+        </header>
+
+        <main class="curriculum-layout">
+            
+            <section class="column-right">
+                
+                <div class="skill-section">
+                    <h2>🧠 مهارة الحصول على المعلومات وتقييمها</h2>
+                    <p>هي القدرة على البحث عن معلومات دقيقة وتقييم مدى صحتها وموثوقيتها.</p>
+                </div>
+
+                <h3 class="sources-title">📊 ترتيب مصادر المعلومات (حسب الدقة)</h3>
+
+                <div class="source-card rank-1">
+                    <div class="source-header">
+                        <span class="rank-badge">١</span>
+                        <span class="source-name">الأوراق العلمية المحكّمة والكتب الأكاديمية</span>
+                    </div>
+                    <div class="source-desc">تعد الأقوى علميًا على الإطلاق نظرًا لمرورها بمراحل تدقيق ومراجعة صارمة.</div>
+                </div>
+
+                <div class="source-card rank-2">
+                    <div class="source-header">
+                        <span class="rank-badge">٢</span>
+                        <span class="source-name">التقارير الحكومية الرسمية</span>
+                    </div>
+                    <div class="source-desc">
+                        تعد من أقوى المراجع رسميًا وقانونيًا، مثل البيانات الصادرة من وزارة الصحة أو وزارة التجارة.
+                        <br>
+                        <span class="domain-note">💡 ملاحظة: عادةً ينتهي نطاق موقعها الإلكتروني بـ <strong>.gov</strong></span>
+                    </div>
+                </div>
+
+                <div class="source-card rank-3">
+                    <div class="source-header">
+                        <span class="rank-badge">٣</span>
+                        <span class="source-name">المنظمات الدولية</span>
+                    </div>
+                    <div class="source-desc">
+                        تعد مصادر مرجعية وتعليمية موثوقة، مثل منظمة الصحة العالمية (WHO).
+                        <br>
+                        <span class="domain-note">💡 ملاحظة: عادةً تنتهي نطاقات مواقعها بـ <strong>.org</strong></span>
+                    </div>
+                </div>
+
+                <div class="source-card rank-4">
+                    <div class="source-header">
+                        <span class="rank-badge">٤</span>
+                        <span class="source-name">الموسوعات الحرة</span>
+                    </div>
+                    <div class="source-desc">عادةً لا تقبل كمرجع دقيق في الأبحاث نظراً لأنها مفتوحة للتعديل من قِبل العامة، مثل ويكيبيديا.</div>
+                </div>
+
+                <div class="source-card rank-5">
+                    <div class="source-header">
+                        <span class="rank-badge">٥</span>
+                        <span class="source-name">تقارير الشركات التجارية</span>
+                    </div>
+                    <div class="source-desc">تعد ضعيفة علميًا لأنها غالباً تنحاز لمنتجاتها الخاصة وهدفها الأول ربحي تسويقي.</div>
+                </div>
+
+                <div class="source-card rank-6">
+                    <div class="source-header">
+                        <span class="rank-badge">٦</span>
+                        <span class="source-name">المدونات وشبكات التواصل الاجتماعي</span>
+                    </div>
+                    <div class="source-desc">تعد الأضعف على الإطلاق لأنها تعتمد في الغالب على الآراء الشخصية والانطباعات وتفتقر للرقابة العلمية.</div>
+                </div>
+
+            </section>
+
+            <section class="column-left">
+                <div class="placeholder-text">
+                    📍 [العمود الأيسر: سيتم استكمال بقية المنهج هنا تلقائياً فور إضافتك للمواضيع القادمة...]
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
